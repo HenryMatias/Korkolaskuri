@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laskuri</title>
+    <!--Styles-->
+    <link rel="stylesheet" href="style.css">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap" rel="stylesheet">
+    <!--Scripts-->
+    <script src="scripts.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="calculator">
+        <div class="form">
+            <div class="row">
+                <div class="col-6">
+                    <div class="calculator-body">
+                        <div class="head">
+                            <h1>Korkolaskuri</h1>
+                        </div>
+                        <div class="content">
+                            <div class="car-input">
+                                <input class="input-check" id="car" type="text">
+                                <label id="carlabel" class="" for="car">Auton hinta</label>
+                                <div id="carborder" class="border"></div>
+                            </div>
+                            <div class="lastmonth-input">
+                                <input class="input-check" id="lastmonth" type="text">
+                                <label id="lastmonthlabel"for="amount">Viimeinen poikkeava erä</label>
+                                <div id="lastmonthborder" class="border"></div>
+                            </div>
+                            <div class="money-input">
+                                <input class="input-check" id="money" type="text">
+                                <label id="moneylabel" for="money">Käsirahan määrä</label>
+                                <div id="moneyborder" class="border"></div>
+                            </div>
+                            <div class="month-input">
+                                <input class="input-check" id="month" type="text">
+                                <label id="monthlabel" for="money">Laina-aika</label>
+                                <div id="monthborder" class="border"></div>
+                            </div>
+                            <div class="cta">
+                                <button id="ctabutton" class="">Laske</button>
+                            </div>
+                            <div class="result-input">
+                                <input id="result" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="rates">
+                        <div class="rates-body">
+                            <h1>Korko</h1>
+                            <div class="rate-input">
+                                <input id="rate" type="text">
+                                <label id="ratelabel" class="" for="rate">Korko</label>
+                                <div id="rateborder" class="border"></div>
+                            </div>
+                            <div class="opening-input">
+                                <input id="opening" type="text">
+                                <label id="openinglabel" class="" for="opening">Avausmaksu</label>
+                                <div id="openingborder" class="border"></div>
+                            </div>
+                            <div class="accountfee-input">
+                                <input id="accountfee" type="text">
+                                <label id="accountfeelabel" class="" for="accountfee">Tilinhoitomaksu / kk</label>
+                                <div id="accountfeeborder" class="border"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('car').addEventListener("input", updateInputOne => {
+            const el = document.getElementById('car').value;
+            const el2 = document.getElementById('carborder');
+            const el3 = document.getElementById('carlabel');
+        
+            el.length > 3 ? el2.classList.add("bordergreen") : el2.classList.remove("bordergreen");
+            el.length > 0 ? el3.classList.add("labelactive") : el3.classList.remove("labelactive");
+        });
+        
+        document.getElementById('lastmonth').addEventListener("input", updateInputTwo => {
+            const el = document.getElementById('lastmonth').value;
+            const el2 = document.getElementById('lastmonthborder');
+            const el3 = document.getElementById('lastmonthlabel');
+        
+            el.length >= 1 ? el2.classList.add("bordergreen") : el2.classList.remove("bordergreen");
+            el.length > 0 ? el3.classList.add("labelactive") : el3.classList.remove("labelactive");
+        });
+        
+        
+        document.getElementById('money').addEventListener("input", updateInputThree => {
+            const el = document.getElementById('money').value;
+            const el2 = document.getElementById('moneyborder');
+            const el3 = document.getElementById('moneylabel');
+        
+            el.length > 3 ? el2.classList.add("bordergreen") : el2.classList.remove("bordergreen");
+            el.length > 0 ? el3.classList.add("labelactive") : el3.classList.remove("labelactive");
+        });
+        
+        
+        document.getElementById('month').addEventListener("input", updateInputFour => {
+            const el = document.getElementById('month').value;
+            const el2 = document.getElementById('monthborder');
+            const el3 = document.getElementById('monthlabel');
+        
+            el.length >= 1 ? el2.classList.add("bordergreen") : el2.classList.remove("bordergreen");
+            el.length > 0 ? el3.classList.add("labelactive") : el3.classList.remove("labelactive");
+        });
+        
+        
+        document.getElementById('month').addEventListener("input", buttonActive => {
+            
+            const el = document.getElementById('ctabutton');
+            const el1 = document.getElementById('car').value;
+            const el2 = document.getElementById('lastmonth').value;
+            const el3 = document.getElementById('money').value;
+            const el4 = document.getElementById('month').value;
+        
+            el4.length >= 1 && el1.length > 3 && el2.length >= 1 && el3.length > 3 ? el.classList.add("active") : el.classList.remove("active");
+        });
+
+        document.getElementById('rate').addEventListener("input", updateInputFive => {
+            const el = document.getElementById('rate').value;
+            const el2 = document.getElementById('rateborder');
+            const el3 = document.getElementById('ratelabel');
+        
+            el.length >= 1 ? el2.classList.add("borderblue") : el2.classList.remove("borderblue");
+            el.length > 0 ? el3.classList.add("labelactive") : el3.classList.remove("labelactive");
+        });
+
+        document.getElementById('opening').addEventListener("input", updateInputFive => {
+            const el = document.getElementById('opening').value;
+            const el2 = document.getElementById('openingborder');
+            const el3 = document.getElementById('openinglabel');
+        
+            el.length >= 1 ? el2.classList.add("borderblue") : el2.classList.remove("borderblue");
+            el.length > 0 ? el3.classList.add("labelactive") : el3.classList.remove("labelactive");
+        });
+
+        document.getElementById('accountfee').addEventListener("input", updateInputFive => {
+            const el = document.getElementById('accountfee').value;
+            const el2 = document.getElementById('accountfeeborder');
+            const el3 = document.getElementById('accountfeelabel');
+        
+            el.length >= 1 ? el2.classList.add("borderblue") : el2.classList.remove("borderblue");
+            el.length > 0 ? el3.classList.add("labelactive") : el3.classList.remove("labelactive");
+        });
+
+
+
+        document.getElementById('ctabutton').addEventListener("click", calcLoan => {
+            document.getElementById('lastmonth').value <= 0 ? withoutDownpayment() : withDownpayment();
+        })
+
+        const withoutDownpayment = () => {
+
+            const CARVALUE = document.getElementById("car").value;
+            const CASHAMOUNT = document.getElementById("money").value;
+            const MONTHSAMOUNT = document.getElementById("month").value;
+            const LASTMONTH = document.getElementById("lastmonth").value;
+            const OPENING = parseInt(document.getElementById("opening").value);
+            const ACCOUNTFEE = parseInt(document.getElementById("accountfee").value);
+            const RATE = document.getElementById("rate").value;
+            let FINALPRICE = 0;
+
+            // Financed Price
+            CASHAMOUNT <= 0 ? FINALPRICE =+ CARVALUE + 350 : FINALPRICE =+ CARVALUE - CASHAMOUNT + 350;
+
+            // Monthly payment
+            const MONTHLYPAYMENT = (9+((((Math.pow(((RATE/(100*12))+1),MONTHSAMOUNT))*(RATE/(100*12)))/((Math.pow(((RATE/(100*12))+1),MONTHSAMOUNT))-1))*FINALPRICE)).toFixed(2);
+
+            document.getElementById("result").value = MONTHLYPAYMENT + " €";
+       
+        }
+        
+        const withDownpayment = () => {
+
+            const CARVALUE = document.getElementById("car").value;
+            const CASHAMOUNT = document.getElementById("money").value;
+            const MONTHSAMOUNT = document.getElementById("month").value;
+            const LASTMONTH = document.getElementById("lastmonth").value;
+            const OPENING = parseInt(document.getElementById("opening").value);
+            const ACCOUNTFEE = parseInt(document.getElementById("accountfee").value);
+            const RATE = document.getElementById("rate").value;
+            
+
+            // Interest
+            const korko = 1.00189;              //korko        -->1,89%
+            const korkomiinus = 0.00189;        //korko - 1    -->0,89%
+    
+            // Last Payment
+            const DOWNPAYMENT = LASTMONTH/Math.pow(korko,MONTHSAMOUNT)-ACCOUNTFEE;
+    
+            // Financed part
+            const PAYEDAMOUNT = CARVALUE-CASHAMOUNT-DOWNPAYMENT+OPENING;
+    
+            // Monthly payment
+            const MONTHLYPAYMENT = ((Math.pow(korko,MONTHSAMOUNT-1)*korkomiinus)/(Math.pow(korko,MONTHSAMOUNT-1)-1)*PAYEDAMOUNT+ACCOUNTFEE).toFixed(2);
+
+            document.getElementById("result").value = MONTHLYPAYMENT + " €";
+    
+        }
+            
+        
+
+    </script>
+</body>
+</html>

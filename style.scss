@@ -1,0 +1,195 @@
+@mixin display ($display, $align, $justify) {
+    display: $display!important;
+    align-items: $align!important;
+    justify-content: $justify!important;
+}
+
+$font-pacifico: 'Pacifico', cursive;
+$font-nunito: 'Nunito', sans-serif;
+
+
+
+.calculator {
+    height: 100vh;
+    @include display (flex, center, center);
+    .row {
+        display: flex;
+        .calculator-body {
+            height: 600px;
+            width: 400px;
+            box-shadow: 0 0 7px 1px green!important;
+            border-radius: 20px;
+            position: relative;
+            background-color: white;
+            .head {
+                text-align: center;
+                font-family: $font-pacifico;
+                padding-top: 10px;
+            }
+            .content {
+                padding: 0 30px;
+                .car-input,
+                .lastmonth-input,
+                .money-input,
+                .month-input {
+                    width: 340px;
+                    height: 50px;
+                    position: relative;
+                    margin-top: 20px;
+                    input {
+                        content: "";
+                        width: 340px;
+                        border: none;
+                        height: 100%;
+                        background: transparent;
+                        padding-left: 20px;
+                        font-size: 22px;
+                        outline: none;
+                        position: absolute;
+                        padding-top: 7px;
+                        &:focus + label {
+                            top: 5%;
+                            transition: 0.3s;
+                            font-size: 15px;
+                        }
+                    }
+                    label {
+                        font-family: $font-nunito;
+                        font-weight: 200;
+                        font-size: 20px;
+                        position: absolute;
+                        padding-left: 20px;
+                        top: 20%;
+                        transition: 0.3s;
+                        pointer-events: none;
+                    }
+                    .border {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 10px;
+                        box-shadow: 0 0 15px 1px #cdcdcd;
+                        position: absolute;
+                        pointer-events: none;
+                        transition: 0.3s;
+                    }
+                    .bordergreen {
+                        box-shadow: 0 0 7px 1px green!important;
+                        transition: 0.3s;
+                    }
+                    .labelactive {
+                        top: 5%;
+                        transition: 0.3s;
+                        font-size: 15px;
+                    }
+                }
+                .cta {
+                    width: 100%;
+                    margin-top: 30px;
+                    button {
+                        width: 100%;
+                        height: 50px;
+                        border-radius: 10px;
+                        font-size: 25px;
+                        font-family: $font-nunito;
+                        text-transform: uppercase;
+                        border: none;
+                        box-shadow: 0 0 15px 1px #cdcdcd;
+                        background-color: grey;
+                        pointer-events: none;
+                        transition: 0.3s;
+                    }
+                    .active {
+                        box-shadow: 0 0 7px 1px green;
+                        background-color: lightgreen;
+                        color: white;
+                        transition: 0.3s;
+                        pointer-events: auto;
+                    }
+                }
+                .result-input {
+                    width: 335px;
+                    height: 100px;
+                    margin-top: 20px;
+                    box-shadow: 0 0 15px 1px #cdcdcd;
+                    border-radius: 10px;
+                    input {
+                        height: 100%;
+                        width: 100%;
+                        font-size: 50px;
+                        text-align: center;
+                        border: none;
+                        border-radius: 10px;
+                    }
+                }
+            }
+        }
+        .rates {
+            width: 300px;
+            height: 350px;
+            box-shadow: 0 0 7px 1px dodgerblue!important;
+            border-radius: 20px;
+            margin-left: -10px;
+            margin-top: 70px;
+            padding: 10px;
+            .rates-body {
+                padding-left: 20px;
+                h1 {
+                    text-align: center;
+                    font-family: $font-pacifico;
+                }
+                .rate-input,
+                .opening-input,
+                .accountfee-input {
+                    width: 260px;
+                    height: 50px;
+                    position: relative;
+                    margin-top: 20px;
+                    input {
+                        content: "";
+                        width: 340px;
+                        border: none;
+                        height: 100%;
+                        background: transparent;
+                        padding-left: 20px;
+                        font-size: 22px;
+                        outline: none;
+                        position: absolute;
+                        padding-top: 7px;
+                        &:focus + label {
+                            top: 5%;
+                            transition: 0.3s;
+                            font-size: 15px;
+                        }
+                    }
+                    label {
+                        font-family: $font-nunito;
+                        font-weight: 200;
+                        font-size: 20px;
+                        position: absolute;
+                        padding-left: 20px;
+                        top: 20%;
+                        transition: 0.3s;
+                        pointer-events: none;
+                    }
+                    .border {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 10px;
+                        box-shadow: 0 0 15px 1px #cdcdcd;
+                        position: absolute;
+                        pointer-events: none;
+                    }
+                    .borderblue {
+                        box-shadow: 0 0 7px 1px dodgerblue!important;
+                        transition: 0.3s;
+                    }
+                    .labelactive {
+                        top: 5%;
+                        transition: 0.3s;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,271 @@
+.calculator {
+  height: 100vh;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+}
+
+.calculator .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.calculator .row .calculator-body {
+  height: 600px;
+  width: 400px;
+  -webkit-box-shadow: 0 0 7px 1px green !important;
+          box-shadow: 0 0 7px 1px green !important;
+  border-radius: 20px;
+  position: relative;
+  background-color: white;
+}
+
+.calculator .row .calculator-body .head {
+  text-align: center;
+  font-family: "Pacifico", cursive;
+  padding-top: 10px;
+}
+
+.calculator .row .calculator-body .content {
+  padding: 0 30px;
+}
+
+.calculator .row .calculator-body .content .car-input,
+.calculator .row .calculator-body .content .lastmonth-input,
+.calculator .row .calculator-body .content .money-input,
+.calculator .row .calculator-body .content .month-input {
+  width: 340px;
+  height: 50px;
+  position: relative;
+  margin-top: 20px;
+}
+
+.calculator .row .calculator-body .content .car-input input,
+.calculator .row .calculator-body .content .lastmonth-input input,
+.calculator .row .calculator-body .content .money-input input,
+.calculator .row .calculator-body .content .month-input input {
+  content: "";
+  width: 340px;
+  border: none;
+  height: 100%;
+  background: transparent;
+  padding-left: 20px;
+  font-size: 22px;
+  outline: none;
+  position: absolute;
+  padding-top: 7px;
+}
+
+.calculator .row .calculator-body .content .car-input input:focus + label,
+.calculator .row .calculator-body .content .lastmonth-input input:focus + label,
+.calculator .row .calculator-body .content .money-input input:focus + label,
+.calculator .row .calculator-body .content .month-input input:focus + label {
+  top: 5%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.calculator .row .calculator-body .content .car-input label,
+.calculator .row .calculator-body .content .lastmonth-input label,
+.calculator .row .calculator-body .content .money-input label,
+.calculator .row .calculator-body .content .month-input label {
+  font-family: "Nunito", sans-serif;
+  font-weight: 200;
+  font-size: 20px;
+  position: absolute;
+  padding-left: 20px;
+  top: 20%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.calculator .row .calculator-body .content .car-input .border,
+.calculator .row .calculator-body .content .lastmonth-input .border,
+.calculator .row .calculator-body .content .money-input .border,
+.calculator .row .calculator-body .content .month-input .border {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 15px 1px #cdcdcd;
+          box-shadow: 0 0 15px 1px #cdcdcd;
+  position: absolute;
+  pointer-events: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.calculator .row .calculator-body .content .car-input .bordergreen,
+.calculator .row .calculator-body .content .lastmonth-input .bordergreen,
+.calculator .row .calculator-body .content .money-input .bordergreen,
+.calculator .row .calculator-body .content .month-input .bordergreen {
+  -webkit-box-shadow: 0 0 7px 1px green !important;
+          box-shadow: 0 0 7px 1px green !important;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.calculator .row .calculator-body .content .car-input .labelactive,
+.calculator .row .calculator-body .content .lastmonth-input .labelactive,
+.calculator .row .calculator-body .content .money-input .labelactive,
+.calculator .row .calculator-body .content .month-input .labelactive {
+  top: 5%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.calculator .row .calculator-body .content .cta {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.calculator .row .calculator-body .content .cta button {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 25px;
+  font-family: "Nunito", sans-serif;
+  text-transform: uppercase;
+  border: none;
+  -webkit-box-shadow: 0 0 15px 1px #cdcdcd;
+          box-shadow: 0 0 15px 1px #cdcdcd;
+  background-color: grey;
+  pointer-events: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.calculator .row .calculator-body .content .cta .active {
+  -webkit-box-shadow: 0 0 7px 1px green;
+          box-shadow: 0 0 7px 1px green;
+  background-color: lightgreen;
+  color: white;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  pointer-events: auto;
+}
+
+.calculator .row .calculator-body .content .result-input {
+  width: 335px;
+  height: 100px;
+  margin-top: 20px;
+  -webkit-box-shadow: 0 0 15px 1px #cdcdcd;
+          box-shadow: 0 0 15px 1px #cdcdcd;
+  border-radius: 10px;
+}
+
+.calculator .row .calculator-body .content .result-input input {
+  height: 100%;
+  width: 100%;
+  font-size: 50px;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+}
+
+.calculator .row .rates {
+  width: 300px;
+  height: 350px;
+  -webkit-box-shadow: 0 0 7px 1px dodgerblue !important;
+          box-shadow: 0 0 7px 1px dodgerblue !important;
+  border-radius: 20px;
+  margin-left: -10px;
+  margin-top: 70px;
+  padding: 10px;
+}
+
+.calculator .row .rates .rates-body {
+  padding-left: 20px;
+}
+
+.calculator .row .rates .rates-body h1 {
+  text-align: center;
+  font-family: "Pacifico", cursive;
+}
+
+.calculator .row .rates .rates-body .rate-input,
+.calculator .row .rates .rates-body .opening-input,
+.calculator .row .rates .rates-body .accountfee-input {
+  width: 260px;
+  height: 50px;
+  position: relative;
+  margin-top: 20px;
+}
+
+.calculator .row .rates .rates-body .rate-input input,
+.calculator .row .rates .rates-body .opening-input input,
+.calculator .row .rates .rates-body .accountfee-input input {
+  content: "";
+  width: 340px;
+  border: none;
+  height: 100%;
+  background: transparent;
+  padding-left: 20px;
+  font-size: 22px;
+  outline: none;
+  position: absolute;
+  padding-top: 7px;
+}
+
+.calculator .row .rates .rates-body .rate-input input:focus + label,
+.calculator .row .rates .rates-body .opening-input input:focus + label,
+.calculator .row .rates .rates-body .accountfee-input input:focus + label {
+  top: 5%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.calculator .row .rates .rates-body .rate-input label,
+.calculator .row .rates .rates-body .opening-input label,
+.calculator .row .rates .rates-body .accountfee-input label {
+  font-family: "Nunito", sans-serif;
+  font-weight: 200;
+  font-size: 20px;
+  position: absolute;
+  padding-left: 20px;
+  top: 20%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.calculator .row .rates .rates-body .rate-input .border,
+.calculator .row .rates .rates-body .opening-input .border,
+.calculator .row .rates .rates-body .accountfee-input .border {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 15px 1px #cdcdcd;
+          box-shadow: 0 0 15px 1px #cdcdcd;
+  position: absolute;
+  pointer-events: none;
+}
+
+.calculator .row .rates .rates-body .rate-input .borderblue,
+.calculator .row .rates .rates-body .opening-input .borderblue,
+.calculator .row .rates .rates-body .accountfee-input .borderblue {
+  -webkit-box-shadow: 0 0 7px 1px dodgerblue !important;
+          box-shadow: 0 0 7px 1px dodgerblue !important;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.calculator .row .rates .rates-body .rate-input .labelactive,
+.calculator .row .rates .rates-body .opening-input .labelactive,
+.calculator .row .rates .rates-body .accountfee-input .labelactive {
+  top: 5%;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-size: 15px;
+}
+/*# sourceMappingURL=style.css.map */
