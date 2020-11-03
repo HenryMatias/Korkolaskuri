@@ -1,0 +1,1 @@
+This is a Car Loan Calculator, with wath you can calculate monthly price for your loan.
