@@ -181,7 +181,7 @@
 
 .calculator .row .calculator-body .content .cta {
   width: 100%;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .calculator .row .calculator-body .content .cta button {
@@ -217,7 +217,7 @@
 .calculator .row .calculator-body .content .result-input {
   width: 335px;
   height: 100px;
-  margin-top: 20px;
+  margin-top: 35px;
   -webkit-box-shadow: 0 0 15px 1px #cdcdcd;
           box-shadow: 0 0 15px 1px #cdcdcd;
   border-radius: 10px;
@@ -234,7 +234,7 @@
 
 .calculator .row .rates {
   width: 300px;
-  height: 350px;
+  height: 390px;
   -webkit-box-shadow: 0 0 7px 1px dodgerblue !important;
           box-shadow: 0 0 7px 1px dodgerblue !important;
   border-radius: 20px;
