@@ -15,7 +15,7 @@ $font-nunito: 'Nunito', sans-serif;
     .row {
         display: flex;
         .calculator-body {
-            height: 600px;
+            height: 650px;
             width: 400px;
             box-shadow: 0 0 7px 1px green!important;
             border-radius: 20px;
@@ -23,8 +23,50 @@ $font-nunito: 'Nunito', sans-serif;
             background-color: white;
             .head {
                 text-align: center;
-                font-family: $font-pacifico;
                 padding-top: 10px;
+                position: relative;
+                padding: 30px 0px;
+                height: 50px;
+                .ribbon {
+                    width: 108%;
+                    height: 50px;
+                    background-color: lightgreen;
+                    margin-left: -4%;
+                    position: absolute;
+                    border-radius: 5px;
+                    @include display(flex, center, center);
+                    &::before {
+                        content: "";
+                        width: 50px;
+                        height: 50px;
+                        background-color: green;
+                        position: absolute;
+                        z-index: -1;
+                        transform : rotate(45deg);
+                        bottom: -24px;
+                        left: 12px;
+                    }
+                    &::after {
+                        content: "";
+                        width: 50px;
+                        height: 50px;
+                        background-color: green;
+                        position: absolute;
+                        z-index: -1;
+                        transform : rotate(45deg);
+                        bottom: -24px;
+                        right: 12px;
+                    }
+                    h1 {
+                        font-size: 35px;
+                        text-transform: uppercase;
+                        font-family: $font-nunito;
+                        font-weight: 700;
+                        color: white;
+                        letter-spacing: 0.2rem;
+                        text-shadow: 2px 2px 3px rgba(153, 153, 153, 0.5);
+                    }
+                }
             }
             .content {
                 padding: 0 30px;
@@ -93,9 +135,11 @@ $font-nunito: 'Nunito', sans-serif;
                         font-family: $font-nunito;
                         text-transform: uppercase;
                         border: none;
-                        box-shadow: 0 0 15px 1px #cdcdcd;
-                        background-color: grey;
+                        box-shadow: 0 0 15px 1px lightgreen;
+                        background-color: white;
                         pointer-events: none;
+                        border: 3px solid lightgreen;
+                        color: green;
                         transition: 0.3s;
                     }
                     .active {
@@ -129,14 +173,48 @@ $font-nunito: 'Nunito', sans-serif;
             box-shadow: 0 0 7px 1px dodgerblue!important;
             border-radius: 20px;
             margin-left: -10px;
-            margin-top: 70px;
+            margin-top: 140px;
             padding: 10px;
+            background-color: white;
+            .rates-head {
+                position: relative;
+                height: 50px;
+                width: 100%;
+                margin: 20px auto;
+                .ribbon {
+                    width: 108%;
+                    height: 50px;
+                    background-color: dodgerblue;
+                    margin-right: -4%;
+                    position: absolute;
+                    border-radius: 5px;
+                    @include display(flex, center, center);
+                    &::after {
+                        content: "";
+                        width: 50px;
+                        height: 50px;
+                        background-color: blue;
+                        position: absolute;
+                        z-index: -1;
+                        transform : rotate(45deg);
+                        bottom: -24px;
+                        right: 12px;
+                    }
+                    h1 {
+                        font-size: 35px;
+                        text-transform: uppercase;
+                        font-family: $font-nunito;
+                        font-weight: 700;
+                        color: white;
+                        letter-spacing: 0.2rem;
+                        text-shadow: 2px 2px 3px rgba(28, 27, 27, 0.5);
+                    }
+                }
+            }
             .rates-body {
                 padding-left: 20px;
-                h1 {
-                    text-align: center;
-                    font-family: $font-pacifico;
-                }
+                position: relative;
+                padding-top: 10px;
                 .rate-input,
                 .opening-input,
                 .accountfee-input {
