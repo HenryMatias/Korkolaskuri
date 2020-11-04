@@ -191,20 +191,15 @@
             const OPENING = parseInt(document.getElementById("opening").value);
             const ACCOUNTFEE = parseInt(document.getElementById("accountfee").value);
             const RATE = document.getElementById("rate").value;
-            
-
-            // Interest
-            const korko = 1.00189;              //korko        -->1,89%
-            const korkomiinus = 0.00189;        //korko - 1    -->0,89%
     
             // Last Payment
-            const DOWNPAYMENT = LASTMONTH/Math.pow(korko,MONTHSAMOUNT)-ACCOUNTFEE;
+            const DOWNPAYMENT = LASTMONTH/Math.pow((((RATE/1000)+1).toFixed(6)),MONTHSAMOUNT)-ACCOUNTFEE;
     
             // Financed part
             const PAYEDAMOUNT = CARVALUE-CASHAMOUNT-DOWNPAYMENT+OPENING;
     
             // Monthly payment
-            const MONTHLYPAYMENT = ((Math.pow(korko,MONTHSAMOUNT-1)*korkomiinus)/(Math.pow(korko,MONTHSAMOUNT-1)-1)*PAYEDAMOUNT+ACCOUNTFEE).toFixed(2);
+            const MONTHLYPAYMENT = ((Math.pow((((RATE/1000)+1).toFixed(6)),MONTHSAMOUNT-1)*((RATE/1000).toFixed(6)))/(Math.pow((((RATE/1000)+1).toFixed(6)),MONTHSAMOUNT-1)-1)*PAYEDAMOUNT+ACCOUNTFEE).toFixed(2);
 
             document.getElementById("result").value = MONTHLYPAYMENT + " €";
     
