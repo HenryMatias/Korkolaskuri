@@ -23,7 +23,7 @@ const withoutDownpayment = () => {
     // Monthly payment
     const MONTHLYPAYMENT = (ACCOUNTFEE+((((Math.pow(((RATE/(100*12))+1),MONTHSAMOUNT))*(RATE/(100*12)))/((Math.pow(((RATE/(100*12))+1),MONTHSAMOUNT))-1))*FINALPRICE)).toFixed(2);
 
-    document.getElementById("result").value = MONTHLYPAYMENT + " €";
+    document.getElementById("result").value = MONTHLYPAYMENT + " €/kk";
 
 }
 
@@ -43,6 +43,6 @@ const withDownpayment = () => {
     // Monthly payment
     const MONTHLYPAYMENT = ((Math.pow((((RATE/1000)+1).toFixed(6)),MONTHSAMOUNT-1)*((RATE/1000).toFixed(6)))/(Math.pow((((RATE/1000)+1).toFixed(6)),MONTHSAMOUNT-1)-1)*PAYEDAMOUNT+ACCOUNTFEE).toFixed(2);
 
-    document.getElementById("result").value = MONTHLYPAYMENT + " €";
+    document.getElementById("result").value = MONTHLYPAYMENT + " €/kk";
 
 }
