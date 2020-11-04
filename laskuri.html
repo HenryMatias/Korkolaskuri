@@ -10,7 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap" rel="stylesheet">
     <!--Scripts-->
-    <script src="scripts.js" type="text/javascript"></script>
+    <script src="calculator.js" type="text/javascript"></script>
+    <script src="styles.js" type="text/javascript"></script>
 </head>
 <body>
     <div class="calculator">
@@ -43,7 +44,7 @@
                                 <div id="monthborder" class="border"></div>
                             </div>
                             <div class="cta">
-                                <button id="ctabutton" class="">Laske</button>
+                                <button id="ctabutton" class="">Laske Kuukausierä</button>
                             </div>
                             <div class="result-input">
                                 <input id="result" type="text">
@@ -76,137 +77,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        document.getElementById('car').addEventListener("input", updateInputOne => {
-            const el = document.getElementById('car').value;
-            const el2 = document.getElementById('carborder');
-            const el3 = document.getElementById('carlabel');
-        
-            el.length > 3 ? el2.classList.add("bordergreen") : el2.classList.remove("bordergreen");
-            el.length > 0 ? el3.classList.add("labelactive") : el3.classList.remove("labelactive");
-        });
-        
-        document.getElementById('lastmonth').addEventListener("input", updateInputTwo => {
-            const el = document.getElementById('lastmonth').value;
-            const el2 = document.getElementById('lastmonthborder');
-            const el3 = document.getElementById('lastmonthlabel');
-        
-            el.length >= 1 ? el2.classList.add("bordergreen") : el2.classList.remove("bordergreen");
-            el.length > 0 ? el3.classList.add("labelactive") : el3.classList.remove("labelactive");
-        });
-        
-        
-        document.getElementById('money').addEventListener("input", updateInputThree => {
-            const el = document.getElementById('money').value;
-            const el2 = document.getElementById('moneyborder');
-            const el3 = document.getElementById('moneylabel');
-        
-            el.length > 3 ? el2.classList.add("bordergreen") : el2.classList.remove("bordergreen");
-            el.length > 0 ? el3.classList.add("labelactive") : el3.classList.remove("labelactive");
-        });
-        
-        
-        document.getElementById('month').addEventListener("input", updateInputFour => {
-            const el = document.getElementById('month').value;
-            const el2 = document.getElementById('monthborder');
-            const el3 = document.getElementById('monthlabel');
-        
-            el.length >= 1 ? el2.classList.add("bordergreen") : el2.classList.remove("bordergreen");
-            el.length > 0 ? el3.classList.add("labelactive") : el3.classList.remove("labelactive");
-        });
-        
-        
-        document.getElementById('month').addEventListener("input", buttonActive => {
-            
-            const el = document.getElementById('ctabutton');
-            const el1 = document.getElementById('car').value;
-            const el2 = document.getElementById('lastmonth').value;
-            const el3 = document.getElementById('money').value;
-            const el4 = document.getElementById('month').value;
-        
-            el4.length >= 1 && el1.length > 3 && el2.length >= 1 && el3.length > 3 ? el.classList.add("active") : el.classList.remove("active");
-        });
-
-        document.getElementById('rate').addEventListener("input", updateInputFive => {
-            const el = document.getElementById('rate').value;
-            const el2 = document.getElementById('rateborder');
-            const el3 = document.getElementById('ratelabel');
-        
-            el.length >= 1 ? el2.classList.add("borderblue") : el2.classList.remove("borderblue");
-            el.length > 0 ? el3.classList.add("labelactive") : el3.classList.remove("labelactive");
-        });
-
-        document.getElementById('opening').addEventListener("input", updateInputFive => {
-            const el = document.getElementById('opening').value;
-            const el2 = document.getElementById('openingborder');
-            const el3 = document.getElementById('openinglabel');
-        
-            el.length >= 1 ? el2.classList.add("borderblue") : el2.classList.remove("borderblue");
-            el.length > 0 ? el3.classList.add("labelactive") : el3.classList.remove("labelactive");
-        });
-
-        document.getElementById('accountfee').addEventListener("input", updateInputFive => {
-            const el = document.getElementById('accountfee').value;
-            const el2 = document.getElementById('accountfeeborder');
-            const el3 = document.getElementById('accountfeelabel');
-        
-            el.length >= 1 ? el2.classList.add("borderblue") : el2.classList.remove("borderblue");
-            el.length > 0 ? el3.classList.add("labelactive") : el3.classList.remove("labelactive");
-        });
-
-
-
-        document.getElementById('ctabutton').addEventListener("click", calcLoan => {
-            document.getElementById('lastmonth').value <= 0 ? withoutDownpayment() : withDownpayment();
-        })
-
-        const withoutDownpayment = () => {
-
-            const CARVALUE = document.getElementById("car").value;
-            const CASHAMOUNT = document.getElementById("money").value;
-            const MONTHSAMOUNT = document.getElementById("month").value;
-            const LASTMONTH = document.getElementById("lastmonth").value;
-            const OPENING = parseInt(document.getElementById("opening").value);
-            const ACCOUNTFEE = parseInt(document.getElementById("accountfee").value);
-            const RATE = document.getElementById("rate").value;
-            let FINALPRICE = 0;
-
-            // Financed Price
-            CASHAMOUNT <= 0 ? FINALPRICE =+ CARVALUE + 350 : FINALPRICE =+ CARVALUE - CASHAMOUNT + 350;
-
-            // Monthly payment
-            const MONTHLYPAYMENT = (9+((((Math.pow(((RATE/(100*12))+1),MONTHSAMOUNT))*(RATE/(100*12)))/((Math.pow(((RATE/(100*12))+1),MONTHSAMOUNT))-1))*FINALPRICE)).toFixed(2);
-
-            document.getElementById("result").value = MONTHLYPAYMENT + " €";
-       
-        }
-        
-        const withDownpayment = () => {
-
-            const CARVALUE = document.getElementById("car").value;
-            const CASHAMOUNT = document.getElementById("money").value;
-            const MONTHSAMOUNT = document.getElementById("month").value;
-            const LASTMONTH = document.getElementById("lastmonth").value;
-            const OPENING = parseInt(document.getElementById("opening").value);
-            const ACCOUNTFEE = parseInt(document.getElementById("accountfee").value);
-            const RATE = document.getElementById("rate").value;
-    
-            // Last Payment
-            const DOWNPAYMENT = LASTMONTH/Math.pow((((RATE/1000)+1).toFixed(6)),MONTHSAMOUNT)-ACCOUNTFEE;
-    
-            // Financed part
-            const PAYEDAMOUNT = CARVALUE-CASHAMOUNT-DOWNPAYMENT+OPENING;
-    
-            // Monthly payment
-            const MONTHLYPAYMENT = ((Math.pow((((RATE/1000)+1).toFixed(6)),MONTHSAMOUNT-1)*((RATE/1000).toFixed(6)))/(Math.pow((((RATE/1000)+1).toFixed(6)),MONTHSAMOUNT-1)-1)*PAYEDAMOUNT+ACCOUNTFEE).toFixed(2);
-
-            document.getElementById("result").value = MONTHLYPAYMENT + " €";
-    
-        }
-            
-        
-
-    </script>
 </body>
 </html>
